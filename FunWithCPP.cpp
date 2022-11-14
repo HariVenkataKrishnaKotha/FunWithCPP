@@ -97,7 +97,6 @@ string chooseSecretWord() {
 }
 
 void replaceDashes(char guessWord[], int length) {
-    // your code goes here
     for (int i = 0; i < length; i++)
         guessWord[i] = '-';
     guessWord[length] = '\0';
