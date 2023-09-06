@@ -112,14 +112,16 @@ void displayWord(string word, int length) {
 
 int isGuessTrue(string secretWord, char guessWord[], char letter) {
     int flag = 0;
-    for (int i = 0; i < secretWord.length(); i++) {
-        if (secretWord[i] == letter) {
-            if (guessWord[i] == secretWord[i]) {
-                flag = 2;
-            }
-            else {
+    if (!secretWord.empty()) { // Check if secretWord is not empty
+        for (int i = 0; i < secretWord.length(); i++) {
+            if (secretWord[i] == letter) {
+                if (guessWord[i] == secretWord[i]) {
+                    flag = 2;
+                }
+                else {
                 guessWord[i] = secretWord[i];
                 flag = 1;
+                }
             }
         }
     }
@@ -139,6 +141,8 @@ void displayMan(int remainingGuess) {
     case 3:
         part[0] = "( )";
         break;
+    default:
+        break; // Add a default case to terminate recursion
     }
 
     cout << "--------------\n";
